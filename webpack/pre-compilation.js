@@ -21,7 +21,8 @@ module.exports = {
                 vendors: {
                     name: 'vendor',
                     test: /vendor$/,
-                    chunks: 'all'
+                    chunks: 'initial',
+                    enforce: true
                 }
             },
         },
@@ -32,6 +33,7 @@ module.exports = {
     },
     entry: {
         styles: './scss/index.scss',
+        vendor: ['react', 'react-dom'],
         app: [
             '../index.tsx'
         ],
@@ -107,7 +109,9 @@ module.exports = {
                     },
                     {
                         loader: "sass-loader",
-                        options: {}
+                        options: {
+                            implementation: require("sass")
+                        }
                     }
                 ]
             },
@@ -134,7 +138,7 @@ module.exports = {
             chunksSortMode: 'none',
             filename: 'index.html', //Name of file in ./dist/
             template: 'index.html', //Name of template in ./src
-            hash: false
+            hash: true
         })
     ]
 };
