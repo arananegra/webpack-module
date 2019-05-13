@@ -2,8 +2,6 @@ let path = require('path');
 let webpack = require("webpack");
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const WebpackPwaManifest = require('webpack-pwa-manifest');
 let basePath = __dirname;
 
 module.exports = {
