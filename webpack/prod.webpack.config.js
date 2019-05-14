@@ -4,19 +4,21 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const common = require('./base.webpack.config');
 const resolve = require('path').resolve;
 const CompressionPlugin = require('compression-webpack-plugin');
-const BrotliPlugin = require("brotli-webpack-plugin");
 
 module.exports = merge(common, {
     mode: 'production',
     devtool: 'cheap-source-map',
     output: {
         path: resolve('dist'),
-        filename: '[hash].[name].js',
+        filename: '[name].[chunkhash].js',
         publicPath: '/'
     },
 
     performance: {
         hints: false,
+    },
+    optimization: {
+        minimize: true,
     },
 
     module: {
@@ -59,12 +61,6 @@ module.exports = merge(common, {
         }),
 
         new webpack.HashedModuleIdsPlugin(),
-        new BrotliPlugin({
-            asset: '[path].br[query]',
-            test: /\.(js|jsx|ts|tsx|css|html|svg)$/,
-            threshold: 10240,
-            minRatio: 0.8
-        }),
         new CompressionPlugin({
             filename: '[path].gz[query]',
             algorithm: 'gzip',
