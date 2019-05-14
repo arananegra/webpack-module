@@ -8,3 +8,5 @@ export const sumOfArray = (array: Array<number>): number => {
 export const meanOfArray = (array: Array<number>): number => {
     return sumOfArray(array)/array.length;
 }
+
+console.log(`We are in: ${process.env.NODE_ENV}`)

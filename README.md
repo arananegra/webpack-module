@@ -1,4 +1,4 @@
-# Webpack / Parcel module assignment
+# Webpack (also Parcel) module assignment
 
 ## Webpack
 Inside the [webpack folder](./webpack) you will find:
