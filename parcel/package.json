@@ -1,0 +1,28 @@
+{
+  "name": "parcel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && parcel ./src/index.html",
+    "build:prod": "rimraf dist && parcel build ./src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^16.8.17",
+    "@types/react-dom": "^16.8.4",
+    "parcel-bundler": "^1.12.3",
+    "rimraf": "2.6.3",
+    "sass": "^1.20.1",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "@types/node": "^12.0.1",
+    "bootstrap": "^4.3.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

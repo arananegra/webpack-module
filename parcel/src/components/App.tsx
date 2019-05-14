@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TestComponent } from "./components/TestComponent";
+import { TestComponent } from "./TestComponent";
 export class App extends React.Component<{}, {}> {
     public render(): JSX.Element {
         return (
