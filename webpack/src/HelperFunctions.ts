@@ -5,6 +5,6 @@ export const sumOfArray = (array: Array<number>): number => {
     }, 0); 
 }
 
-export const meanOfArray = (array: Array<number>) => {
+export const meanOfArray = (array: Array<number>): number => {
     return sumOfArray(array)/array.length;
 }

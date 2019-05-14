@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const resolve = require('path').resolve;
 const basePath = __dirname;
@@ -7,7 +8,7 @@ const basePath = __dirname;
 module.exports = {
     context: path.join(basePath, 'src'),
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx']
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss']
     },
 
     mode: 'development',
@@ -32,7 +33,7 @@ module.exports = {
         net: "empty"
     },
     entry: {
-        styles: './scss/index.scss',
+        //styles: './scss/index.scss',
         vendor: ['react', 'react-dom'],
         app: [
             '../index.tsx'
@@ -86,34 +87,31 @@ module.exports = {
             {
                 test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
-                use: [{
-                    loader: 'ts-loader'
-                }]
+                loader: 'babel-loader',
             },
             {
-                test: /\.(html)$/,
-                exclude: /node_modules/,
-                loader: 'html-loader'
-            },
-            {
-                test: /\.(scss|css)$/,
+                test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     {
-                        loader: "css-loader",
+                        loader: 'css-loader',
                         options: {
-                            minimize: {
-                                safe: true
-                            }
-                        }
+                            modules: true,
+                            localIdentName: '[name]_[local]_[hash:base64:5]',
+                        },
                     },
                     {
-                        loader: "sass-loader",
+                        loader: 'sass-loader', 
                         options: {
-                            implementation: require("sass")
+                            implementation: require('sass'),
                         }
                     }
-                ]
+                ],
+            },
+
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
             {
                 test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)/,
@@ -139,6 +137,10 @@ module.exports = {
             filename: 'index.html', //Name of file in ./dist/
             template: 'index.html', //Name of template in ./src
             hash: true
-        })
+        }),
+        new ForkTsCheckerWebpackPlugin({
+            tsconfig: '../tsconfig.json',
+            async: false,
+        }),
     ]
 };
