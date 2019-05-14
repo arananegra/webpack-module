@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const common = require('./base.webpack.config');
 const resolve = require('path').resolve;
 const CompressionPlugin = require('compression-webpack-plugin');
+const dotenv = require('dotenv-webpack');
 
 module.exports = merge(common, {
     mode: 'production',
@@ -35,7 +36,7 @@ module.exports = merge(common, {
                         },
                     },
                     {
-                        loader: 'sass-loader', 
+                        loader: 'sass-loader',
                         options: {
                             implementation: require('sass'),
                         }
@@ -50,19 +51,22 @@ module.exports = merge(common, {
     },
 
     plugins: [
+        new dotenv({
+            path: './prod.env'
+        }),
         new MiniCssExtractPlugin({
             filename: "[name].[chunkhash].css",
             chunkFilename: "[id].css"
         }),
-/*         new webpack.optimize.ModuleConcatenationPlugin(),
+        new webpack.optimize.ModuleConcatenationPlugin(),
 
-        new webpack.HashedModuleIdsPlugin(), */
+        new webpack.HashedModuleIdsPlugin(),
         new CompressionPlugin({
             filename: '[path].gz[query]',
             algorithm: 'gzip',
             test: /\.js$|\.jsx$|\.ts$|\.tsx$|\.scss$|\.css$|\.html$/,
             threshold: 1024,
             minRatio: 0.8,
-          }),
+        }),
     ]
 });
