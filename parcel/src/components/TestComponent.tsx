@@ -1,5 +1,6 @@
 import * as React from "react";
 import './testComponentStyles';
+import { meanOfArray } from "../helpers/HelperFunctions";
 const logo = require('../content/logo.png');
 export interface TestProps {
     numberOfKs: number;
@@ -16,8 +17,11 @@ export class TestComponent extends React.Component<TestProps, TestState> {
     state = {
         doggoUrl: ''
     }
-/*     componentDidMount() {
-        fetch("https://dog.ceo/api/breed/Pug/images/random")
+    componentDidMount() {
+        let array = [1, 2, 3, 4, 5];
+        let sum = meanOfArray(array);
+        console.log(sum);
+        fetch('https://dog.ceo/api/breed/Pug/images/random')
             .then(response => {
                 return response.json()
             })
@@ -27,20 +31,20 @@ export class TestComponent extends React.Component<TestProps, TestState> {
             .catch(error => {
                 console.log(error)
             })
-    } */
+    }
 
     public render(): JSX.Element {
         return (
             <div>
-                <div className={"App"}>
-                    <header className={"App-header"}>
-                        <img src={logo} className={"App-logo"} alt="logo" />
-                       {/*  <img src={this.state.doggoUrl} className={classNames["App-image"]} /> */}
+                <div className="App">
+                    <header className="App-header">
+                        <img src={logo} className="App-logo" alt="logo" />
+                        <img src={this.state.doggoUrl} className="App-image" />
                         <p>
                             Limones en resolución {this.props.numberOfKs}k desde un hola mundo de React
                         </p>
                         <a
-                            className={"App-link"}
+                            className="App-link"
                             href="https://lemoncode.net/"
                             target="_blank"
                             rel="noopener noreferrer"
