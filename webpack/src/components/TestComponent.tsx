@@ -1,5 +1,5 @@
 import * as React from "react";
-import { meanOfArray } from "../HelperFunctions";
+import { meanOfArray } from "../helpers/HelperFunctions";
 let classNames = require('./testComponentStyles');
 const logo = require('../../assets/images/logo.png');
 export interface TestProps {

@@ -4,10 +4,10 @@
   "description": "Webpack module",
   "main": "index.js",
   "scripts": {
-    "start:pre": "webpack-dev-server --config=dev.webpack.config.js",
+    "start:dev": "webpack-dev-server --config=dev.webpack.config.js",
     "start:pro": "webpack-dev-server --port 3002 --config=prod.webpack.config.js",
     "build:pro": "rimraf dist && webpack --config=prod.webpack.config.js",
-    "build:pre": "rimraf dist && webpack --config=dev.webpack.config.js",
+    "build:dev": "rimraf dist && webpack --config=dev.webpack.config.js",
     "build:perf": "rimraf dist && webpack --config=perf.webpack.config.js"
   },
   "author": "Álvaro Gómez Jáuregui",
