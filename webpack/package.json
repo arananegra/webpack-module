@@ -4,12 +4,11 @@
   "description": "Webpack module",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=pre-compilation --hot --inline --devtool=inline-source-map --progress",
-    "start:devtool-none": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=pre-compilation --hot --inline --devtool=none --progress",
-    "compile": "rimraf dist && ./node_modules/webpack-cli/bin/cli.js --config=pro-compilation",
-    "compile:pre": "rimraf dist && ./node_modules/webpack-cli/bin/cli.js --config=pre-compilation",
-    "serve:pre": "rimraf dist && ./node_modules/webpack-cli/bin/cli.js --config=pre-compilation && ./node_modules/serve/bin/serve.js -s dist",
-    "serve:pro": "rimraf dist && ./node_modules/webpack-cli/bin/cli.js --config=pro-compilation && ./node_modules/serve/bin/serve.js -s dist"
+    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=pre-compilation --hot --inline --progress --open",
+    "compile": "./node_modules/rimraf/bin.js dist && ./node_modules/webpack-cli/bin/cli.js --config=pro-compilation",
+    "compile:pre": "./node_modules/rimraf/bin.js dist && ./node_modules/webpack-cli/bin/cli.js --config=pre-compilation",
+    "serve:pre": "./node_modules/rimraf/bin.js dist && ./node_modules/webpack-cli/bin/cli.js --config=pre-compilation && ./node_modules/serve/bin/serve.js -s dist",
+    "serve:pro": "./node_modules/rimraf/bin.js dist && ./node_modules/webpack-cli/bin/cli.js --config=pro-compilation && ./node_modules/serve/bin/serve.js -s dist"
   },
   "author": "Álvaro Gómez Jáuregui",
   "dependencies": {

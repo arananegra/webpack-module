@@ -13,6 +13,8 @@ module.exports = {
 
     mode: 'development',
 
+    devtool: 'inline-source-map',
+
     target: "web",
 
     optimization: {
@@ -72,7 +74,7 @@ module.exports = {
         disableHostCheck: true,
         contentBase: './dist',
         inline: true,
-        host: '0.0.0.0',
+        host: 'localhost',
         port: 3002,
         hot: true,
         headers: {
