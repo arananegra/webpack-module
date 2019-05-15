@@ -20,7 +20,7 @@ Inside the [webpack folder](./webpack) you will find:
 
 If you take the generated prod. bundle and serve it using a static server with https enabled and then navigate to that same web using Chrome, it will ask you if you want to add the app to the homescreen 📲
 
-You can check that the service worker and the manifest are loaded using the dev tools -> Application tab -> Service Workes | Manifest
+You can check that the service worker and the manifest are loaded using the dev tools -> Application tab -> Service Workers | Manifest.
 
 
 
