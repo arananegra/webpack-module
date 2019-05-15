@@ -50,5 +50,5 @@ Here is a list of npm commands you can use:
 
 ```
 npm run build:dev # Start the parcel server using non-production build.
-npm run build:prod # Use parcel to build the project into ./dist using the default production settings by Parcel.
+npm run build:pro # Use parcel to build the project into ./dist using the default production settings by Parcel.
 ```
