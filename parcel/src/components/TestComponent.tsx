@@ -1,7 +1,7 @@
 import * as React from "react";
 import './testComponentStyles';
 import { meanOfArray } from "../helpers/HelperFunctions";
-const logo = require('../content/logo.png');
+const logo = require('../assets/logo.png');
 export interface TestProps {
     numberOfKs: number;
 }
