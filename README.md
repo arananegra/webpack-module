@@ -8,7 +8,7 @@ Inside the [webpack folder](./webpack) you will find:
 - Is using typescript throught babel-loader.
 - Its hello world is styled using SCSS (modules).
 - Its hello world show a image/logo from lemoncode.
-- It loads also a dog from https://dog.ceo/dog-api/ using [dotenv-webpack](https://www.npmjs.com/package/dotenv-webpack).
+- It also loads a dog from https://dog.ceo/dog-api/ using [dotenv-webpack](https://www.npmjs.com/package/dotenv-webpack).
     - If the select.ed environment is development you will see any kind of dog breed
     - Otherwise, (production env) you will only see Pugs 🐶
 - You can analyze the production bundle sizes 
@@ -30,3 +30,25 @@ npm run build:dev # Use webpack bundle analyzer to analyze the bundle
 
 ## Parcel
 
+Inside the [parcel folder](./parcel) you will find:
+
+- A hello world React App
+- That app is bundled with Parcel.
+- Is using typescript (although you better don't make mistakes, Parcel doesn't give a f*** 🤭 about them).
+- Its hello world is styled using SCSS.
+- Its hello world show a image/logo from lemoncode.
+- It also loads a dog from https://dog.ceo/dog-api/ but Parcel (again) doesn't support env variables (they suggest something really hacky https://github.com/parcel-bundler/parcel/issues/255 🤔) so expect only Pug photos.
+- You can analyze the production bundle sizes using a plugin (it does what it can https://github.com/gregtillbrook/parcel-plugin-bundle-visualiser). When building the production script it will add a report.html.
+
+In order to run this example you just have to clone this repo and install deps
+
+```
+cd parcel && npm install
+```
+
+Here is a list of npm commands you can use:
+
+```
+npm run build:dev # Start the parcel server using non-production build.
+npm run build:prod # Use parcel to build the project into ./dist using the default production settings by Parcel.
+```

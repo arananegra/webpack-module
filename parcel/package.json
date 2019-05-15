@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && parcel ./src/index.html",
-    "build:prod": "rimraf dist && parcel build ./src/index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:dev": "rimraf dist && parcel ./src/index.html",
+    "build:prod": "rimraf dist && parcel build ./src/index.html"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +14,7 @@
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
     "parcel-bundler": "^1.12.3",
+    "parcel-plugin-bundle-visualiser": "^1.2.0",
     "rimraf": "2.6.3",
     "sass": "^1.20.1",
     "typescript": "^3.4.5"
