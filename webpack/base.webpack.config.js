@@ -1,5 +1,4 @@
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 const basePath = __dirname;
 
@@ -53,7 +52,7 @@ module.exports = {
             },
             {
                 test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.mp4$|\.wav$|\.mp3$/,
-                use: 'file-loader?name=./assets/[name].[ext]'
+                use: 'file-loader?name=[name].[hash].[ext]'
             }
         ]
     },

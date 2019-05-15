@@ -3,7 +3,7 @@
 ## Webpack
 Inside the [webpack folder](./webpack) you will find:
 
-- A hello world React App
+- A hello world React App.
 - That app is bundled with Webpack 4.
 - Is using typescript throught babel-loader.
 - Its hello world is styled using SCSS (modules).
@@ -11,7 +11,16 @@ Inside the [webpack folder](./webpack) you will find:
 - It also loads a dog from https://dog.ceo/dog-api/ using [dotenv-webpack](https://www.npmjs.com/package/dotenv-webpack).
     - If the select.ed environment is development you will see any kind of dog breed
     - Otherwise, (production env) you will only see Pugs 🐶
-- You can analyze the production bundle sizes 
+- You can analyze the production bundle sizes.
+
+### Extra points 👻
+- A working generated PWA manifest using [webpack-pwa-manifest](https://github.com/arthurbergmz/webpack-pwa-manifest).
+- Service worker is made also on the fly using [sw-precache-webpack-plugin](https://github.com/goldhand/sw-precache-webpack-plugin)
+- Favicons are directly injected into index.html through html-webpack-plugin using [favicons-webpack-plugin](https://github.com/jantimon/favicons-webpack-plugin)
+
+If you take the generated prod. bundle and serve it using a static server with https enabled and then navigate to that same web using Chrome, it will ask you if you want to add the app to the homescreen 📲
+
+
 
 In order to run this example you just have to clone this repo and install deps
 

@@ -21,7 +21,6 @@ export class TestComponent extends React.Component<TestProps, TestState> {
         let array = [1, 2, 3, 4, 5];
         let sum = meanOfArray(array);
         console.log(sum);
-        console.log(process.env.DOGGO_API)
         fetch(process.env.DOGGO_API)
             .then(response => {
                 return response.json()

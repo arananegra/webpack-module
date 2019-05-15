@@ -5,6 +5,10 @@ const common = require('./base.webpack.config');
 const resolve = require('path').resolve;
 const CompressionPlugin = require('compression-webpack-plugin');
 const dotenv = require('dotenv-webpack');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+const path = require('path');
+const faviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'production',
@@ -12,7 +16,7 @@ module.exports = merge(common, {
     output: {
         path: resolve('dist'),
         filename: '[name].[chunkhash].js',
-        publicPath: '/'
+        //publicPath: '/'
     },
 
     performance: {
@@ -68,5 +72,34 @@ module.exports = merge(common, {
             threshold: 1024,
             minRatio: 0.8,
         }),
+
+        new SWPrecacheWebpackPlugin(
+            {
+                cacheId: 'app-cache-id',
+                dontCacheBustUrlsMatching: /\.\w{8}\./,
+                filename: 'service-worker.js',
+                staticFileGlobsIgnorePatterns: [/\.map$/, /manifest\.json$/]
+            }
+        ),
+        new WebpackPwaManifest({
+            name: 'Webpack React PWA example',
+            short_name: 'React PWA',
+            description: 'Example of usage a webpack to create a PWA',
+            display: "standalone",
+            background_color: '#0d1f22',
+            theme_color: '#0d1f22',
+            start_url: '/',
+            icons: [
+                {
+                    src: path.resolve('./assets/images/logo.png'),
+                    sizes: [96, 128, 192, 256, 384, 512],
+                    destination: path.join('pwa-assets', 'icons')
+                }
+            ]
+        }),
+        new faviconsWebpackPlugin({
+            logo: path.resolve('./assets/images/favicon.ico'),
+            persistentCache: false,
+        })
     ]
 });
