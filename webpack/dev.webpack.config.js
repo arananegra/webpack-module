@@ -47,6 +47,20 @@ module.exports = merge(common, {
         }
     },
 
+    optimization: {
+        splitChunks: {
+            name: false,
+            cacheGroups: {
+                vendors: {
+                    name: 'vendor',
+                    test: /vendor$/,
+                    chunks: 'initial',
+                    enforce: true
+                }
+            },
+        },
+    },
+
     module: {
         rules: [
             {

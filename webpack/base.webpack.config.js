@@ -8,25 +8,12 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss']
     },
     target: "web",
-    optimization: {
-        splitChunks: {
-            name: false,
-            cacheGroups: {
-                vendors: {
-                    name: 'vendor',
-                    test: /vendor$/,
-                    chunks: 'initial',
-                    enforce: true
-                }
-            },
-        },
-    },
     node: {
         fs: "empty",
         net: "empty"
     },
     entry: {
-        vendor: ['react', 'react-dom'],
+        //https://webpack.js.org/concepts/entry-points/#separate-app-and-vendor-entries
         app: [
             '../index.tsx'
         ],
