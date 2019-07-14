@@ -3,6 +3,7 @@ const common = require('./base.webpack.config');
 const resolve = require('path').resolve;
 const forkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const dotenv = require('dotenv-webpack');
+const path = require('path');
 
 module.exports = merge(common, {
     mode: 'development',
@@ -75,11 +76,11 @@ module.exports = merge(common, {
                         },
                     },
                     {
-                        loader: 'sass-loader', 
+                        loader: 'sass-loader',
                         options: {
                             implementation: require('sass'),
                         }
-                    }
+                    },
                 ],
             },
             {

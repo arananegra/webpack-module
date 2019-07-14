@@ -64,7 +64,10 @@ module.exports = merge(common, {
                         options: {
                             implementation: require('sass'),
                         }
-                    }
+                    },
+                    {
+                        loader: 'less-loader', // compiles Less to CSS
+                    },
                 ],
             },
             {

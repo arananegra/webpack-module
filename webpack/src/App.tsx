@@ -1,11 +1,13 @@
 import * as React from "react";
-import { TestComponent } from "./components/TestComponent";
-export class App extends React.Component<{}, {}> {
-    public render(): JSX.Element {
-        return (
-            <div>
-                <TestComponent numberOfKs={4} />
-            </div>
-        );
-    }
+import { AppLayout } from "./components/app.layout";
+
+export const App = () => {
+  return (
+    <div>
+      <AppLayout>
+        <div><h1>hoallalall</h1></div>
+      </AppLayout>
+
+    </div>
+  );
 }

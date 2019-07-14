@@ -30,12 +30,8 @@ module.exports = {
                 loader: 'babel-loader',
             },
             {
-                test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)/,
+                test: /\.woff($|\?)|\.woff2($|\?)|\.otf($|\?)|\.ttf($|\?)|\.eot($|\?)/,
                 use: "url-loader?limit=10000"
-            },
-            {
-                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'file-loader?mimetype=image/svg+xml'
             },
             {
                 test: /\.jpe?g$|\.ico$|\.gif$|\.png$|\.svg$|\.mp4$|\.wav$|\.mp3$/,
